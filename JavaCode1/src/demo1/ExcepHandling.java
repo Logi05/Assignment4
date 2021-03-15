@@ -2,23 +2,35 @@ package demo1;
 import java.lang.Exception.*;
 public class ExcepHandling {
 public static void main(String args[]) {
-	int i=8,j=2,k;
+	int i=8,j=0,k;
 	try {
-		k=i/j;
-		try {
-			int a[]=new int[3];
-			for(int l=0;l<=3;l++) {
-				a[l]=l+1;
+		int a[]=new int[3];
+		for(int l=0;l<=3;l++) {
+			a[3]=l+1;
 				System.out.println(a[3]);
 			}
-		}finally {
-			System.out.println("Executed Always");
 		}
-			
+	catch(ArithmeticException e) {
+		System.out.println("Arithmetic Exception Occurs");
 	}
-	catch(ArrayIndexOutOfBoundsException | ArithmeticException e) {
+	catch(ArrayIndexOutOfBoundsException e)
+	{
+		System.out.println("Array index out of range");
+	}
+	catch(Exception e) {
+		System.out.println("Arithmetic Exception Occurs");
+	}
+	try {
+		k=i/j;
+	}
+	catch(ArrayIndexOutOfBoundsException | ArithmeticException e)
+	{
+		System.out.println("Arithmetic Exception Occurs");
+	}
+	catch(Exception e) {
 		System.out.println(e);
 	}
+	}
 		}
-}
+
 
